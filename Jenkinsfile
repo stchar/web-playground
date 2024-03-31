@@ -4,6 +4,8 @@ pipeline {
     stage('one') {
       steps {
         echo 'Hello World!'
+        echo "scm = ${scm}"
+        echo "env = ${env}"
       }
     }
   }
