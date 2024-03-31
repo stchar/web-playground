@@ -9,7 +9,7 @@ pipeline {
         echo "env = ${env}"
         echo env.GIT_COMMIT
         echo env.GIT_BASELINE
-        echo scm.getExtensions()
+        echo scm.getExtensions().toString()
       }
     }
   }
