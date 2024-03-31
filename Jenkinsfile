@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('one') {
       steps {
+        checkout scm
         echo 'Hello World!'
         echo "scm = ${scm}"
         echo "env = ${env}"
