@@ -7,7 +7,7 @@ pipeline {
         echo "scm = ${scm}"
         echo "env = ${env}"
         echo scm.GIT_COMMIT
-        echo scm.GIT_BASELINE
+        echo env.GIT_BASELINE
       }
     }
   }
