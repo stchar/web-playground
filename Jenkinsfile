@@ -9,6 +9,10 @@ pipeline {
         echo env.GIT_COMMIT
         echo env.GIT_BASELINE
         echo scm.getExtensions().toString()
+        script {
+          def v = semver.parser(env.GIT_BASELINE)
+          println v.bumpMajor()
+        }
       }
     }
   }
