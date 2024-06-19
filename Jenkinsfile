@@ -11,7 +11,7 @@ pipeline {
         echo scm.getExtensions().toString()
         script {
           def v = semver.parse(env.GIT_BASELINE)
-          println v.bumpMajor()
+          rintln v.nextMinorVersion()
         }
       }
     }
