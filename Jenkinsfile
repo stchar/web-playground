@@ -1,7 +1,12 @@
 println "DEBUG: before pieline step env.GIT_COMMIT = ${env.GIT_COMMIT}"
 println "DEBUG: before pieline step env.GIT_BASELINE = ${env.GIT_BASELINE}"
 println "DEBUG: before pieline step env.BRANCH_NAME = ${env.BRANCH_NAME}"
-println "DEBUG: before pieline step scm = ${scm}"
+if (scm){
+  println "DEBUG: before pieline step scm = ${scm}"
+}
+if (semver) {
+  println "DEBUG: before pieline step semver = ${semver}"
+}
 
 pipeline {
   agent any
