@@ -21,9 +21,29 @@ println "DEBUG: before pieline step: env.BRANCH_NAME = ${env.BRANCH_NAME}"
 
 
 pipeline {
-  agent any
+  agent none
   stages {
     stage('one') {
+      agent any
+      steps {
+        echo 'Hello World!'
+        echo "env = ${env}"
+        echo env.GIT_COMMIT
+        echo env.GIT_BASELINE
+        script {
+          if(scm_enabled) {
+            echo "scm = ${scm}"
+            echo scm.getExtensions().toString()
+          }
+          if(semver_enabled) {
+            def v = semver.parse(env.GIT_BASELINE)
+            println v.nextMinorVersion()
+          }
+        }
+      }
+    }
+    stage('two') {
+      agent any
       steps {
         echo 'Hello World!'
         echo "env = ${env}"
