@@ -7,11 +7,13 @@ try {
   if (scm) {
     scm_enabled = true
     println "DEBUG: before pieline step: semver = ${semver}"
+  }
 } catch (MissingPropertyException e) {}
 try {
   if (semver) {
     semver_enabled = true
     println "DEBUG: before pieline step: semver = ${semver}"
+  }
 } catch (MissingPropertyException e) {}
   
 
